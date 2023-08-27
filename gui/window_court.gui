@@ -114,7 +114,7 @@
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					visible = "[CourtWindow.IsShowCourt]"
-					
+
 					using = Animation_Tab_Switch
 
 					vbox = {
@@ -247,7 +247,7 @@
 					visible = "[CourtWindow.IsShowPrison]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					
+
 					using = Animation_Tab_Switch
 
 					state = {
@@ -734,6 +734,7 @@
 	window_character_filter = {
 		name = "court_character_filter_window"
 		datacontext = "[CourtWindow.GetCourt]"
+		size = { 510 860 }
 
 		blockoverride "editbox_properties"
 		{
@@ -761,6 +762,10 @@
 					filter_item = {
 						layoutpolicy_horizontal = expanding
 						datacontext = "[CharacterSelectionList.GetFilter('claim_filter')]"
+					}
+					filter_item = {
+						layoutpolicy_horizontal = expanding
+						datacontext = "[CharacterSelectionList.GetFilter('hostage_filter')]"
 					}
 				}
 			}

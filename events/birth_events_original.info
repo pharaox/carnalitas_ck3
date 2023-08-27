@@ -258,7 +258,7 @@ birth.0001 = {
 								}
 							}
 							else = { #Normal event
-								trigger_event = birth.1003 	
+								trigger_event = birth.1003
 							}
 						}
 						5 = { #Other parent (mother) suggest a name
@@ -775,7 +775,7 @@ birth.1001 = {
 			limit = { exists = scope:child_2 }
 			#Let's save the court physician if you have one
 			if = {
-				limit = { 
+				limit = {
 					court_physician_available_trigger = yes
 					any_court_position_holder = {
 						type = court_physician_court_position
@@ -792,10 +792,10 @@ birth.1001 = {
 						any_close_or_extended_family_member = {
 							is_in_the_same_court_as = root
 							is_adult = yes
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -807,9 +807,9 @@ birth.1001 = {
 							is_in_the_same_court_as = root
 							is_adult = yes
 							has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -819,7 +819,7 @@ birth.1001 = {
 							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -835,10 +835,10 @@ birth.1001 = {
 							is_in_the_same_court_as = root
 							is_adult = yes
 							is_female = yes
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -851,9 +851,9 @@ birth.1001 = {
 							is_adult = yes
 							is_female = yes
 							has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -865,10 +865,10 @@ birth.1001 = {
 								target = scope:mother
 								value >= 10
 							}
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -882,10 +882,10 @@ birth.1001 = {
 					any_courtier= {
 						is_adult = yes
 						is_female = yes
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -895,9 +895,9 @@ birth.1001 = {
 						is_adult = yes
 						is_female = yes
 						has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -908,10 +908,10 @@ birth.1001 = {
 							target = scope:mother
 							value >= 10
 						}
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -1012,7 +1012,7 @@ birth.1001 = {
 			setup_scope = { scope:child_2 = { save_scope_as = name_character_target } }
 		}
 	}
-	
+
 	option = {
 		name = birth.1001.a
 		trigger = { scope:child = { NOT = { has_trait = twin } } }
@@ -1434,13 +1434,13 @@ birth.1003 = {
 			limit = { exists = scope:child_2 }
 			#Let's save the court physician if you have one
 			if = {
-				limit = { 
+				limit = {
 					court_physician_available_trigger = yes
 					any_court_position_holder = {
 						type = court_physician_court_position
 						has_court_event_flag = no
 						is_ai = yes
-						NOT = { this = scope:mother } 
+						NOT = { this = scope:mother }
 					}
 				}
 				save_court_physician_as_effect = { SCOPE_NAME = second_adult }
@@ -1452,10 +1452,10 @@ birth.1003 = {
 						any_close_or_extended_family_member = {
 							is_in_the_same_court_as = root
 							is_adult = yes
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1467,9 +1467,9 @@ birth.1003 = {
 							is_in_the_same_court_as = root
 							is_adult = yes
 							has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1479,7 +1479,7 @@ birth.1003 = {
 							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1495,10 +1495,10 @@ birth.1003 = {
 							is_in_the_same_court_as = root
 							is_adult = yes
 							is_female = yes
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1511,9 +1511,9 @@ birth.1003 = {
 							is_adult = yes
 							is_female = yes
 							has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1525,10 +1525,10 @@ birth.1003 = {
 								target = scope:mother
 								value >= 10
 							}
-							NOR = { 
+							NOR = {
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 								has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-								this = scope:father 
+								this = scope:father
 								this = scope:mother
 							}
 						}
@@ -1542,10 +1542,10 @@ birth.1003 = {
 					any_courtier= {
 						is_adult = yes
 						is_female = yes
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -1555,9 +1555,9 @@ birth.1003 = {
 						is_adult = yes
 						is_female = yes
 						has_any_good_relationship_with_character_trigger = { CHARACTER = scope:mother }
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -1568,10 +1568,10 @@ birth.1003 = {
 							target = scope:mother
 							value >= 10
 						}
-						NOR = { 
+						NOR = {
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:father }
 							has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:mother }
-							this = scope:father 
+							this = scope:father
 							this = scope:mother
 						}
 					}
@@ -1643,7 +1643,7 @@ birth.1005 = {
 		trigger = { exists = scope:spouse_of_mother }
 		character = scope:spouse_of_mother
 	}
-	
+
 	immediate = {
 		play_music_cue = mx_cue_seduction
 		if = {
@@ -1692,7 +1692,7 @@ birth.1005 = {
 			setup_scope = { scope:child_2 = { save_scope_as = name_character_target } }
 		}
 	}
-	
+
 	option = {
 		name = birth.1005.a
 		bastard_real_father_discovery_on_birth_effect = yes
@@ -1734,7 +1734,7 @@ birth.1006 = {
 		character = scope:child_2
 	}
 	right_portrait = scope:spouse_of_mother
-	
+
 	trigger = {
 		exists = scope:secret # Chance of Secret invalidating
 		scope:secret = {
@@ -1845,12 +1845,13 @@ birth.1010 = {
 		character = scope:mother
 		animation = newborn
 	}
+	right_portrait = scope:spouse_of_mother
 	lower_left_portrait = scope:child
 	lower_center_portrait = {
 		trigger = { exists = scope:child_2 }
 		character = scope:child_2
 	}
-	right_portrait = scope:spouse_of_mother
+
 
 	immediate = {
 		play_music_cue_once = { TRACK = mx_cue_birth }
@@ -1861,6 +1862,10 @@ birth.1010 = {
 			scope:mother.primary_spouse = {
 				save_scope_as = spouse_of_mother
 			}
+		}
+		else_if = {
+			limit = { exists = scope:child.father }
+			scope:child.father = { save_scope_as = spouse_of_mother }
 		}
 	}
 
@@ -2083,7 +2088,9 @@ birth.2001 = {
 			}
 			if = {
 				limit = {
-					NOT = { is_courtier_of = ROOT } # Check that char is not already at your court (theoretical fix)
+					scope:child = {
+						NOT = { is_courtier_of = ROOT } # Check that char is not already at your court (theoretical fix)
+					}
 					OR = {
 						this = court_owner
 						is_courtier_of = court_owner
@@ -2095,7 +2102,7 @@ birth.2001 = {
 				scope:child = { visit_court_of = root.court_owner }
 			}
 		}
-	
+
 		hidden_effect = {
 			scope:mother = {
 				every_child = {
@@ -2118,7 +2125,7 @@ birth.2001 = {
 				trigger_event = birth.2002
 			}
 		}
-		
+
 
 		ai_chance = {
 			base = 10
@@ -2217,7 +2224,7 @@ birth.2002 = {
 		animation = newborn
 	}
 	lower_left_portrait = scope:child
-	
+
 	immediate = {
 		play_music_cue_once = { TRACK = mx_cue_birth }
 		show_as_tooltip = {
@@ -2294,7 +2301,7 @@ birth.2011 = {
 		}
 	}
 	lower_left_portrait = scope:child
-	
+
 	immediate = {
 		play_music_cue = mx_cue_seduction
 
@@ -2322,7 +2329,7 @@ birth.2011 = {
 			}
 		}
 	}
-	
+
 	#NAMING WIDGET
 	widgets = {
 		widget = {
@@ -2335,7 +2342,7 @@ birth.2011 = {
 			setup_scope = { scope:child = { save_scope_as = name_character_target } }
 		}
 	}
-	
+
 	option = {
 		name = birth.1001.a
 		scope:other_parent = {
@@ -2380,7 +2387,7 @@ birth.2012 = {
 		}
 		character = primary_partner
 	}
-	
+
 	immediate = {
 		scope:child = {
 			# It's already added elsewhere, but we want this here for tooltip reasons.
@@ -2405,7 +2412,7 @@ birth.2012 = {
 #Event for the Mother's Spouse/Concubinist, unlegitimizable bastard
 birth.2102 = {
 	type = character_event
-	title = birth.2102.t	
+	title = birth.2102.t
 	desc = birth.2102.desc
 	theme = pregnancy
 	override_background = { reference = relaxing_room }
@@ -2422,7 +2429,7 @@ birth.2102 = {
 	immediate = {
 		play_music_cue = mx_cue_seduction
 	}
-	
+
 	option = {
 		name = birth.2102.a
 	}
@@ -2460,7 +2467,7 @@ birth.2104 = {
 	immediate = {
 		play_music_cue = mx_cue_seduction
 	}
-	
+
 	option = {
 		name = birth.2104.a
 	}
@@ -2695,7 +2702,7 @@ birth.3012 = {
 
 	option = {
 		name = birth.3012.a
-		
+
 		add_stress = minor_stress_gain
 	}
 }
@@ -2729,7 +2736,7 @@ birth.3021 = {
 
 	option = {
 		name = birth.3021.a
-		
+
 		if = {
 			limit = {
 				exists = scope:father
@@ -2809,7 +2816,7 @@ birth.3031 = {
 			desc = birth.3031.daughterson.desc
 		}
 		desc = birth.3031.end.desc
-	}	
+	}
 	theme = physical_health
 	left_portrait = {
 		character = scope:child
@@ -2859,7 +2866,7 @@ birth.3032 = {
 			desc = birth.3031.daughterson.desc
 		}
 		desc = birth.3031.end.desc
-	}	
+	}
 	theme = physical_health
 	left_portrait = {
 		character = scope:mother
@@ -2886,7 +2893,7 @@ birth.3032 = {
 #Sickly child recovery management event
 birth.3033 = {
 	hidden = yes
-	
+
 	trigger = {
 		has_trait = sickly
 	}
@@ -3009,7 +3016,7 @@ birth.3041 = {
 birth.8001 = { #by Mathilda Bjarnehed
 	type = character_event
 	hidden = yes
-	
+
 	trigger = {
 		can_become_reincarnation_trigger = yes
 		any_close_or_extended_family_member = {
@@ -3088,23 +3095,22 @@ birth.8001 = { #by Mathilda Bjarnehed
 				}
 
 				set_variable = {
-					days = 3650 #Must last until child's 9th birthday
 					name = reincarnation_of
 					value = scope:ancestor
 				}
 				copy_inheritable_appearance_from = scope:ancestor
 			}
-			
+
 		}
 	}
-}		
+}
 
 # Born in the Purple allocation
 #	by Ewan Cowhig Croft
 birth.8011 = {
 	type = character_event
 	hidden = yes
-	
+
 	trigger = {
 		any_parent = {
 			culture = {
@@ -3190,7 +3196,7 @@ scripted_effect birth_9002_name_setting_effect = {
 				scope:name_type = flag:namers_name
 			}
 		}
-		hidden_effect = { scope:child = { change_first_name = { template_character = scope:namesake } } } 
+		hidden_effect = { scope:child = { change_first_name = { template_character = scope:namesake } } }
 		custom_tooltip = birth.9002.a.tt.1
 	}
 	else_if = {
@@ -3549,7 +3555,7 @@ birth.9002 = {
 						}
 						factor = 2
 					}
-					
+
 					scope:suggester = {
 						random_close_or_extended_family_member = {
 							even_if_dead = yes
@@ -3892,7 +3898,7 @@ birth.9002 = {
 								scope:child = {
 									is_male = yes
 									faith = { religion_tag = christianity_religion }
-								}	
+								}
 							}
 							save_scope_value_as = { name = name_suggestion value = flag:Peter } #Apostle
 						}
@@ -3901,7 +3907,7 @@ birth.9002 = {
 								scope:child = {
 									is_male = yes
 									faith = { religion_tag = christianity_religion }
-								}	
+								}
 							}
 							save_scope_value_as = { name = name_suggestion value = flag:Paul } #Apostle
 						}
@@ -4062,7 +4068,7 @@ birth.9002 = {
 						1 = {
 							trigger = { scope:child = { is_male = yes } }
 							save_scope_value_as = { name = name_suggestion value = flag:Matt } #QA
-						}	
+						}
 						1 = {
 							trigger = { scope:child = { is_female = yes } }
 							save_scope_value_as = { name = name_suggestion value = flag:Katya } #QA
@@ -4159,7 +4165,7 @@ birth.9002 = {
 					}
 				}
 				scope:namesake = { save_scope_as = namesake_official }
-			}	
+			}
 
 			#Fallback (either parents' name)
 			if = {
@@ -4206,7 +4212,7 @@ birth.9002 = {
 			trigger = { exists = scope:name_suggestion }
 			text = birth.9002.a2
 		}
-		
+
 		show_as_tooltip = { birth_9002_name_setting_effect = yes }
 		reverse_add_opinion = {
 	 		target = scope:suggester
@@ -4261,7 +4267,7 @@ birth.9002 = {
 
 		trigger_event = birth.9003
 	}
-	
+
 	after = {
 		bastard_real_father_discovery_on_birth_effect = yes
 	}
@@ -4292,7 +4298,7 @@ birth.9003 = { #by Mathilda Bjarnehed
 			setup_scope = { scope:child = { save_scope_as = name_character_target } }
 		}
 	}
-	
+
 	option = {
 		name = birth.9003.a
 	}
@@ -4315,7 +4321,7 @@ birth.9004 = {
 				desc = birth.9004.desc
 			}
 		}
-		
+
 	}
 	theme = family
 	override_background = { reference = relaxing_room }

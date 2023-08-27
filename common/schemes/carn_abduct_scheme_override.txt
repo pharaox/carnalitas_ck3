@@ -34,6 +34,7 @@
 		is_adult = yes
 		is_landed = yes
 		is_imprisoned = no
+		is_hostage = no
 	}
 
 	valid = {

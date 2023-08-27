@@ -32,6 +32,7 @@
 		is_adult = yes
 		is_landed = yes
 		is_imprisoned = no
+		is_hostage = no
 	}
 
 	valid = {
@@ -126,7 +127,7 @@
 				var:discovered_escape_tunnel_of = scope:target
 			}
 		}
-		
+
 		# Spiritual Head of Faith
 		modifier = {
 			add = -50

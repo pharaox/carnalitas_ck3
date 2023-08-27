@@ -161,7 +161,7 @@ pregnancy.1001 = {
 			pregnancy_spouse_suspicion_chance_effect = yes
 		}
 	}
-	
+
 	option = {
 		name = pregnancy.1001.a
 	}
@@ -200,7 +200,7 @@ pregnancy.1002 = {
 }
 
 scripted_trigger former_consort_was_father = {
-	OR = {	
+	OR = {
 		any_former_spouse = {
 			even_if_dead = yes
 			this = scope:father
@@ -265,7 +265,7 @@ pregnancy.1101 = {
 				desc = pregnancy.1101.desc.dead
 			}
 			desc = pregnancy.1101.desc.divorced
-			
+
 		}
 		desc = pregnancy.1101.desc.end
 	}
@@ -340,7 +340,7 @@ pregnancy.1102 = {
 		}
 		animation = happiness
 	}
-	
+
 
 	option = {
 		name = pregnancy.1102.a
@@ -567,18 +567,18 @@ pregnancy.2002 = {
 	theme = pregnancy
 	left_portrait = scope:real_father
 	right_portrait = scope:father
-	
+
 	trigger = {
 		# If we are married and/or have concubines, but the real father is not one of them, it's a bastard!
 		any_consort = {
 			is_male = yes
 		}
 		pregnancy_real_father = {
-			NOT = {	is_consort_of = root }	
+			NOT = {	is_consort_of = root }
 		}
 
 		# OBJECTION! If a former spouse/concubine is both the real and assumed father, it's not actually a bastard!
-		NOT = {	
+		NOT = {
 			former_consort_was_father = yes
 		}
 	}
@@ -600,7 +600,7 @@ pregnancy.2002 = {
 		}
 
 		save_scope_as = mother
-		hidden_effect = {	
+		hidden_effect = {
 			set_num_pregnancy_children = 1
 			if = {
 				limit = {
@@ -787,7 +787,7 @@ pregnancy.2005 = {
 		animation = sadness
 	}
 
-	immediate = {	
+	immediate = {
 		if = {
 			limit = {
 				is_married = no
@@ -856,11 +856,11 @@ pregnancy.2050 = {
 			NOT = { is_male = yes }
 		}
 		pregnancy_real_father = {
-			NOT = {	is_consort_of = root }	
+			NOT = {	is_consort_of = root }
 		}
 
 		# OBJECTION! If a former spouse/concubine is both the real and assumed father, it's not actually a bastard!
-		NOT = {	
+		NOT = {
 			former_consort_was_father = yes
 		}
 	}
@@ -869,7 +869,7 @@ pregnancy.2050 = {
 		play_music_cue = "mx_cue_succession"
 
 		save_scope_as = mother
-		hidden_effect = {	
+		hidden_effect = {
 			set_num_pregnancy_children = 1
 			if = {
 				limit = {
@@ -948,7 +948,7 @@ pregnancy.2101 = {
 		character = root
 		animation = personality_cynical
 	}
-	
+
 	trigger = {
 		is_pregnant = yes
 	}
@@ -1043,7 +1043,7 @@ pregnancy.3001 = {
 	}
 	theme = pregnancy
 	left_portrait = scope:mother
-	
+
 	trigger = {
 		scope:mother = {
 			is_pregnant = yes
@@ -1243,7 +1243,7 @@ pregnancy.3003 = {
 		ai_chance = {
 			base = 25
 		}
-	}	
+	}
 }
 
 
@@ -1254,7 +1254,7 @@ pregnancy.3004 = {
 	desc = pregnancy.3004.desc
 	theme = pregnancy
 	left_portrait = scope:mother
-	right_portrait = scope:spouse
+	lower_right_portrait = scope:spouse
 
 	trigger = {
 		scope:mother = {
@@ -1275,11 +1275,14 @@ pregnancy.3004 = {
 		primary_spouse = {
 			save_scope_as = spouse
 		}
+		show_as_tooltip = {
+			scope:mother = { add_trait_force_tooltip = pregnant }
+		}
 	}
 
 	option = { #This must be kept secret!
 		name = pregnancy.3004.a
-	}	
+	}
 }
 
 #5000: Follow-ups
@@ -1422,10 +1425,10 @@ pregnancy.5003 = {
 		character = scope:mother
 		animation = personality_callous
 	}
-	
+
 	option = { #Are they really telling the truth?
 		name = pregnancy.5003.a
-	}	
+	}
 }
 
 
@@ -1639,7 +1642,7 @@ pregnancy.6006 = {
 	theme = pregnancy
 	left_portrait = scope:mother
 	lower_left_portrait = scope:real_father
-	right_portrait = scope:spouse
+	lower_center_portrait = scope:spouse
 
 	immediate = {
 		play_music_cue = "mx_cue_prison"

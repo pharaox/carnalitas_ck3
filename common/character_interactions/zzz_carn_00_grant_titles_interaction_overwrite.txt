@@ -27,7 +27,7 @@
 			}
 		}
 	}
-	
+
 	is_valid_showing_failures_only = {
 		scope:recipient = {
 			custom_tooltip = {
@@ -37,10 +37,34 @@
 					can_be_granted_theocratic_titles_by = { RULER = scope:actor }
 				}
 			}
+			NOT = { is_at_war_with = scope:actor }
+			NOT = { has_trait = devoted } # Monks are disinherited, and should not have land granted to them
+			carn_can_be_granted_titles_trigger = yes
+			bp2_valid_for_standard_interactions_trigger = yes
+			is_busy_in_events_localised = yes
+			trigger_if = {
+				limit = { is_ruler = no }
+				is_imprisoned = no
+			}
+			# DON'T TAKE OTHER PLAYERS' ACCLAIMED KNIGHTS
+			custom_description = {
+				text = grant_title_stealing_acclaimed_knight
+				subject = scope:recipient
+				NOR = {
+					AND = {
+						is_acclaimed = yes
+						liege ?= {
+							is_ai = no
+							NOT = { this = scope:actor }
+						}
+					}
+					AND = {
+						is_acclaimed = yes
+						scope:actor = { is_ai = yes }
+					}
+				}
+			}
 		}
-		NOT = { scope:actor = { is_at_war_with = scope:recipient } }
-		NOT = { scope:recipient = { has_trait = devoted } } # Monks are disinherited, and should not have land granted to them
-		scope:recipient = { carn_can_be_granted_titles_trigger = yes }
 		custom_description = {
 			text = is_not_theocratic_court_chaplain
 			subject = scope:recipient
@@ -62,43 +86,8 @@
 				count > 1
 			}
 		}
-		scope:recipient = { is_busy_in_events_localised = yes }
-		trigger_if = {
-			limit = {
-				scope:recipient = {
-					is_ruler = no
-				}
-			}
-			scope:recipient = {
-				is_imprisoned = no
-			}
-		}
-		# DON'T TAKE OTHER PLAYERS' ACCLAIMED KNIGHTS
-		custom_description = {
-			text = grant_title_stealing_acclaimed_knight
-			subject = scope:recipient
-			NOR = {
-				AND = {
-					scope:recipient = {
-						is_acclaimed = yes
-					}
-					scope:recipient.liege ?= {
-						is_ai = no
-						NOT = { this = scope:actor }
-					}
-				}
-				AND = {
-					scope:recipient = {
-						is_acclaimed = yes
-					}
-					scope:actor = {
-						is_ai = yes
-					}
-				}
-			}
-		}
 	}
-	
+
 	can_be_picked_title = {
 		scope:target = {
 			is_leased_out = no
@@ -169,11 +158,11 @@
 						is_adult = no
 					}
 					scope:target = {
-						tier = tier_county 
+						tier = tier_county
 
-						title_province = { 
+						title_province = {
 							is_county_capital = yes
-							has_building_with_flag = temple 
+							has_building_with_flag = temple
 						}
 					}
 				}
@@ -195,7 +184,7 @@
 			trigger_event = char_interaction.0110
 		}
 	}
-	
+
 	on_accept = {
 		if = {
 			limit = {
@@ -252,31 +241,31 @@
 
 		if = {
 			limit = {
-				any_in_list = {
-					list = target_titles
-					tier = tier_county
-					culture = scope:recipient.culture
-					NOR = {
-						culture = scope:actor.culture
-						recent_history = {
-							type = granted
-							years = 10
+				OR = { # Carnalitas: Adopted from Unofficial Patch
+					any_in_list = {
+						list = target_titles
+						tier = tier_county
+						culture = scope:recipient.culture
+						NOR = {
+							culture = scope:actor.culture
+							recent_history = {
+								type = granted
+								years = 10
+							}
 						}
 					}
-				}
-			}
-			alternative_limit = {
-				any_in_list = {
-					list = target_titles
-					tier >= tier_duchy
-					title_capital_county = {
-						NOT = { culture = scope:actor.culture }
-						culture = scope:recipient.culture
-					}
-					NOT = {
-						recent_history = {
-							type = granted
-							years = 10
+					any_in_list = {
+						list = target_titles
+						tier >= tier_duchy
+						title_capital_county = {
+							NOT = { culture = scope:actor.culture }
+							culture = scope:recipient.culture
+						}
+						NOT = {
+							recent_history = {
+								type = granted
+								years = 10
+							}
 						}
 					}
 				}
@@ -363,22 +352,22 @@
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_empire }
-						add = massive_dynasty_prestige_gain
+						add = { value = scope:actor.dynasty.massive_dynasty_prestige_gain } # Carnalitas: Adopted from Unofficial Patch
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_kingdom }
-						add = major_dynasty_prestige_gain
+						add = { value = scope:actor.dynasty.major_dynasty_prestige_gain } # Carnalitas: Adopted from Unofficial Patch
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_duchy }
-						add = medium_dynasty_prestige_gain
+						add = { value = scope:actor.dynasty.medium_dynasty_prestige_gain } # Carnalitas: Adopted from Unofficial Patch
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_county }
-						add = minor_dynasty_prestige_gain
+						add = { value = scope:actor.dynasty.minor_dynasty_prestige_gain } # Carnalitas: Adopted from Unofficial Patch
 					}
 				}
 			}
@@ -740,7 +729,7 @@
 						count >= 1
 					}
 				}
-				
+
 				# Generous characters enjoy giving away titles
 				if = {
 					limit = {
@@ -790,7 +779,7 @@
 									else_if = {
 										limit = { this.tier = tier_empire }
 										add = {
-											value = monumental_stress_loss 
+											value = monumental_stress_loss
 											multiply = 2 # 200 base
 										}
 									}
@@ -819,7 +808,7 @@
 				# Greedy & ambitious ruler gain stress for giving away titles if they would normally be able to keep them.
 				if = {
 					limit = {
-						# Pre-filter 
+						# Pre-filter
 						OR = {
 							has_trait = greedy
 							has_trait = ambitious
@@ -835,7 +824,7 @@
 							limit = {
 								has_too_many_held_duchies_trigger = yes
 							}
-							NOT = {				
+							NOT = {
 								# Granting at least 1 duchy
 								any_in_list = {
 									list = target_titles
@@ -845,7 +834,7 @@
 									# All counties being granted are De Jure part of the duchy that is being granted
 									any_in_list = {
 										list = target_titles
-										count = all 
+										count = all
 										trigger_if = {
 											limit = { tier = tier_county}
 											de_jure_liege = scope:granted_duchy
@@ -902,7 +891,7 @@
 				# Actually removed in religious_decision.0312
 				custom_tooltip = runestone_grant_title_warning
 			}
-			
+
 			if = {
 				limit = {
 					exists = scope:actor.dynasty
@@ -965,10 +954,10 @@
 					}
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
-					
-						left_icon = scope:actor					
+
+						left_icon = scope:actor
 						right_icon = scope:recipient
-					
+
 						custom_tooltip = grant_titles_interaction_notification_effect_2
 						if = {
 							limit = {
@@ -1015,10 +1004,10 @@
 					}
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
-					
-						left_icon = scope:actor					
+
+						left_icon = scope:actor
 						right_icon = scope:recipient
-					
+
 						custom_tooltip = grant_titles_interaction_notification_effect_3
 					}
 				}
@@ -1033,10 +1022,10 @@
 					}
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
-					
-						left_icon = scope:actor					
+
+						left_icon = scope:actor
 						right_icon = scope:recipient
-					
+
 						custom_tooltip = grant_titles_interaction_notification_effect_6
 					}
 				}
@@ -1052,10 +1041,10 @@
 					}
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
-					
-						left_icon = scope:actor					
+
+						left_icon = scope:actor
 						right_icon = scope:recipient
-					
+
 						custom_tooltip = grant_titles_interaction_notification_effect_5
 					}
 				}
@@ -1070,10 +1059,10 @@
 					}
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
-					
-						left_icon = scope:actor					
+
+						left_icon = scope:actor
 						right_icon = scope:recipient
-					
+
 						custom_tooltip = grant_titles_interaction_notification_effect_4
 					}
 				}
@@ -1081,7 +1070,7 @@
 					send_interface_toast = {
 						title = grant_titles_interaction_notification
 
-						left_icon = scope:actor					
+						left_icon = scope:actor
 						right_icon = scope:recipient
 
 						custom_tooltip = grant_titles_interaction_notification_effect

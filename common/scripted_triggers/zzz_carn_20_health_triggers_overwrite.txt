@@ -79,6 +79,10 @@ can_contract_disease_trigger = {
 		limit = {
 			scope:disease_type_for_trigger = flag:lovers_pox
 			is_travelling = yes
+			# Do not block Goliardic Shenanigans!
+			involved_activity ?= {
+				NOT = { has_activity_type = activity_adult_education }
+			}
 		}
 		current_travel_plan = {
 			any_entourage_character = {
@@ -123,7 +127,7 @@ can_contract_disease_trigger = {
 		AND = {
 			scope:disease_type_for_trigger = flag:pneumonic
 			has_trait = ill
-		}	
+		}
 	}
 
 	#Cooldown is over
