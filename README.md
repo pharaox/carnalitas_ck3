@@ -1,4 +1,4 @@
-# Carnalitas EK2 Compatibility
+# Carnalitas Patch for CK3 1.10
 
 This is a [Carnalitas](https://www.loverslab.com/files/file/14207-carnalitas-unified-sex-mod-framework-for-ck3/) compatibility patch for CK3 1.10. It reconciles changes to the character window, the court window and other files that were changed incompatibly in CK3 compared to the latest released versions of Carnalitas.
 
@@ -6,6 +6,7 @@ The latest version is based on Carnalitas 2.0 (for CK3 1.9) and compatible with 
 
 Load order:
 
+* Unofficial Patch (optional, but highly recommended)
 * Carnalitas
 * Carnalitas Patch for CK3 1.10
 * (other mods based on Carnalitas)
